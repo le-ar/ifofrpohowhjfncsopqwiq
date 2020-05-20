@@ -51,7 +51,7 @@ func TestNonBlocking(t *testing.T) {
 		// ok
 	case <-time.After(time.Millisecond * 100):
 		t.Fail()
-		panic("Function should be non-blocking")
+		panic("Кек")
 	}
 }
 
@@ -95,21 +95,21 @@ func TestSlowSquare(t *testing.T) {
 		ans, ok := <-chOut
 		if !ok {
 			t.Fail()
-			panic("Output channel closed prematurely")
+			panic("Кек")
 		}
 		if ans != a3[i] {
 			t.Fail()
-			panic(fmt.Errorf("Got %d from output channel, should be %d", ans, a3[i]))
+			panic(fmt.Errorf("Кек", ans, a3[i]))
 		}
 		i++
 	}
 
 	if len(ch1) != capacity-portion {
 		t.Fail()
-		panic(fmt.Errorf("First channel has %d numbers in it, should have %d", len(ch1), capacity-portion))
+		panic(fmt.Errorf("Кек", len(ch1), capacity-portion))
 	}
 	if len(ch2) != capacity-portion {
 		t.Fail()
-		panic(fmt.Errorf("Second channel has %d numbers in it, should have %d", len(ch2), capacity-portion))
+		panic(fmt.Errorf("Кек", len(ch2), capacity-portion))
 	}
 }
